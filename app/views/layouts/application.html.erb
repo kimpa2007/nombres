@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nombres</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+   
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+            <div class="container">
+                <%= link_to "Nombres", index_path, class: "navbar-brand" %>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <%= link_to "Inicio", index_path, class: "nav-link"%>
+                        </li>
+                        <li class="nav-item">
+                            <%= link_to "Listar nombres", nombres_path, class: "nav-link"%>
+                        </li>
+                        <li class="nav-item">
+                            <%= link_to "Listar nacionalidades", nacionalidades_path, class: "nav-link"%>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                            
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4">
+             <%= yield %>
+        </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Nombres</div>
+
+                <div class="card-body">
+                   
+                    <%= render 'layouts/messages' %>
+
+                    <%= form_tag(:controller => "nombre", :action => "create", :method => "post") do %>
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input class="form-control" type="text" id="nombre" name="nombre" required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombre">Caracteristica</label>
+                            <input class="form-control" type="text" id="caracteristica" name="caracteristica" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cantante">Nacionalidades</label>
+                            <%= select_tag "nacionalidads[]", options_from_collection_for_select(@nacionalidads, "id", "nombre"), {:multiple => 'multiple', :class => 'form-control', :required => true} %>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary" type="submit">Crear nombre</button>
+                        </div>
+                    <% end %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

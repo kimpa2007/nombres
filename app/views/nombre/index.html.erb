@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Nombres</div>
+
+                <div class="card-body">
+                   
+                    <%= render 'layouts/messages' %>
+
+                    <div class="w-100">
+                        <div class="mb-3 float-right">
+                            <%= link_to "Añadir un nombre", nombre_new_url, class: "btn btn-primary" %>
+                        </div>
+                    </div>
+
+                    <div>
+                        <table class="table table-stripped">
+
+                        <% if @nombres %>
+                            <table class="table table-stripped">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Caracteristica</th>
+                                        <th style="width: 100px" ></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% @nombres.each do |nombre| %>
+                                        <tr>
+                                            <td> <%= nombre.nombre %> </td> 
+                                            <td> <%= nombre.caracteristica %></td> 
+                                            <td>
+                                                <div style="position:relative; display: inline-flex">
+                                                    <%= link_to 'Modificar', nombre_edit_path(nombre.id) , class: "btn btn-success" %>
+                                                    <%= link_to 'Eliminar', nombre_destroy_url(nombre.id), method: :delete, data: { confirm: 'Estás seguro de querer eliminar este nombre?'}, class: "btn btn-danger"  %></td>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <% end %>
+                                </tbody>
+                            </table>
+                        <% end %>
+                    	
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
